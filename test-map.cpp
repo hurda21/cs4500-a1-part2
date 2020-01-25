@@ -1,0 +1,85 @@
+#include "object.h"
+#include "map.h"
+
+void testMapConstructorAndDestructor() {
+	Map map = new Map();
+	printf("Successfully constructed map\n");
+	map.~Map();
+	printf("Successfully deconstructed map\n");
+}
+
+void testMapSet() {
+	Map map = new Map();
+	printf("Map length is: %i", map.length());
+	Object o1 = new Object();
+	Object o2 = new Object();
+	map.set(o1, o2);
+	printf("Map length is: %i", map.length());
+
+	// Exits the program if map length is incorrect
+	if (map.length() != 1) exit(1);
+}
+
+void testMapRemove() {
+	Map map = new Map();
+	Object o1 = new Object();
+	Object o2 = new Object();
+	Object o3 = new Object();
+	Object o4 = new Object();
+	map.set(o1, o2);
+	map.set(o3, o4);
+	printf("Before remove, map length is: %i", map.length());
+	map.remove(o1);
+	printf("After remove, map length is: %i", map.length());
+
+	// Exits the program if map length is incorrect
+	if (map.length() != 1) exit(1);
+	
+	map.remove(o3);
+	printf("After remove, map length is: %i", map.length());
+
+	// Exits the program if map length is incorrect
+	if (map.length() != 0) exit(1);
+}
+
+void testMapClear() {
+	Map map = new Map();
+	Object o1 = new Object();
+	Object o2 = new Object();
+	Object o3 = new Object();
+	Object o4 = new Object();
+	map.set(o1, o2);
+	map.set(o3, o4);
+	printf("Before clear, map length is: %i", map.length());
+	map.clear()
+	printf("After clear, map length is: %i", map.length());
+
+	// Exits the program if map length is incorrect
+	if (map.length() != 0) exit(1);
+}
+
+void testMapGet() {
+	Map map = new Map();
+	Object o1 = new Object();
+	Object o2 = new Object();
+	Object o3 = new Object();
+	Object o4 = new Object();
+	map.set(o1, o2);
+	map.set(o3, o4);
+
+	if (!map.get(o1).equals(o2) || !map.get(o3).equals(o4)) {
+		exit(1);
+	}
+}
+
+int main() {
+	// Test suite
+	testMapConstructorAndDestructor();
+	testMapSet();
+	testMapRemove();
+	testMapClear();
+	testMapGet();
+
+	// Returns successfully if all tests are successfully completed
+	return 0;
+}
