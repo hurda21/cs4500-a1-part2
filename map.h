@@ -1,15 +1,14 @@
 // A1: Part 2
 // lang: CwC
 
+#pragma once
 #include "object.h"
 #include "keyvalue.h"
 
 class Map: public Object {
-	private:
+	public:
 		// Fields
 		KeyValue* pairs;
-
-	public:
 
 		Map() {
 			// Constructor for Map
@@ -26,13 +25,13 @@ class Map: public Object {
 		void clear();
 
 		// Gets the value at a specific key
-		Object get(Object key);
+		Object* get(Object* key);
 
 		// Sets the value at the specified key to the value
-		void set(Object key, Object value);
+		void set(Object* key, Object* value);
 		
 		// Removes value at the specified key and returns the removed object
-		Object remove(Object key);
+		Object* remove(Object* key);
 
 		// Gets all the keys of this map
 		Object* getKeys();
@@ -44,7 +43,9 @@ class Map: public Object {
 		KeyValue* getItems();
 
 		// Checks if this map is equal to another object
-		bool equals(Object o);
+		bool equals(Object* o);
+
+		size_t hash();
 }
 
 
