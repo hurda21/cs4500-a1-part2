@@ -8,7 +8,7 @@
 class Map: public Object {
 	public:
 		// Fields
-		KeyValue* pairs;
+		KeyValue* map;
 
 		Map() {
 			// Constructor for Map
