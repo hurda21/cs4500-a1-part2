@@ -12,7 +12,7 @@ class KeyValue: public Object {
 		KeyValue(Object* k, Object* v) {
 			// Constructor for KeyValue pair
 			key = key;
-			vvaue = v;
+			value = v;
 		}
 
 		~KeyValue() {
