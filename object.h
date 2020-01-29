@@ -1,51 +1,33 @@
-//lang::CwC
-
-#pragma once
-#include <cstdlib>
-
-/**
- * @file object.h
- * @brief Implementation of Object class.
- */
-
-/**
- * A base object class that represents the root of the class hierarchy.
- */
-class Object {
-	public:
-
-		/*
-		 * The default constructor for the Object class.
-		 */
-		Object() {
-				
-		}
-
-		/**
-		 * Returns true if this object is equal to the given object
-		 * and false otherwise.
-		 *
-		 * @param other the other object used in the comparison
-		 * @return true if this object is the same as the given object
-		 * and false otherwise
-		 */
-		virtual bool equals(Object* other) {
-			return this == other;	
-		}
-
-		/**
-		 * Returns the hash value of this object.
-		 *
-		 * @return the hash value of this object
-		 */
-		virtual size_t hash() {
-			return reinterpret_cast<size_t>(this);
-		}
-
-		/*
-		 * The default destructor for the Object class.
-		 */
-		virtual ~Object() {
-			
-		}
+#pragma once                                                                     
+//lang::CwC                                                                                                                                                       
+#include "helper.h"                                                                                                                                               
+/**                                                                              
+ * A class that represents the top of the object hierarchy.                      
+ * author: vitekj@me.com */                                                      
+class Object : public Sys {                                                      
+ public:                                                                         
+  size_t hash_;  // cache the hash value                                         
+                                                                                 
+  /** Default constructor ensure that hash is initialized */                     
+  Object() { hash_ = 0; }                                                        
+                                                                                 
+  /** Default constructor is virtual to support subclasses */                    
+  virtual ~Object() {}                                                           
+                                                                                 
+  /** Returns the object's hash value. Two objects that are equal should         
+   * have the same hash; object's that are not, may have the same hash.          
+   * Subclasses should implement hash_me_(). */                                  
+  size_t hash() {  return  hash_ ? hash_ :  hash_ = hash_me_();  }               
+                                                                                 
+  /** Trivial hash function. */                                                  
+  virtual size_t hash_me_() { return 0; }                                        
+                                                                                 
+  /** Use the address of the other object to determine equality. */              
+  virtual bool equals(Object* other) { return this == other; }                   
+                                                                                 
+  /** Return a newly allocated string describin the object */                    
+  virtual char* to_string() { return duplicate("Object"); }                      
+                                                                                 
+  /** Print to stdout. */                                                        
+  virtual void print() { pln("object");  }                                                                                                                    
 };
