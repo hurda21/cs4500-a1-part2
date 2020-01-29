@@ -5,7 +5,7 @@
 #include "keyvalue.h"
 
 class Map: public Object {
-	private:
+	public:
 		// Fields
 		KeyValue* pairs;
 
