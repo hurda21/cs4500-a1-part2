@@ -1,7 +1,7 @@
 // A1: Part 2
 // lang: CwC
-
 #pragma once
+
 #include "object.h"
 
 class Map: public Object {
