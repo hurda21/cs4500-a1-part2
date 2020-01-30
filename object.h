@@ -1,5 +1,5 @@
-//https://github.com/chasebish/cwc_object_string
-//lang::CwC
+// https://github.com/chasebish/cwc_object_string
+// lang::CwC
 #pragma once
 
 #include <cstdlib>
