@@ -36,13 +36,36 @@ class Map: public Object {
 		// Gets all the values of this map
 		Object* getValues();
 
-		// Gets all the key value pairs of the map
-		KeyValue* getItems();
-
 		// Checks if this map is equal to another object
 		bool equals(Object* o);
 
 		size_t hash();
+}
+
+class StringMap: public Map {
+	public:
+		StringMap() {
+			// Constructor for StringMap
+		}
+
+		~StringMap() {
+			// Destructor for StringMap
+		}
+
+		// Gets the value at a specific key
+		String* get(String* key);
+
+		// Sets the value at the specified key to the value
+		void set(String* key, String* value);
+
+		// Removes value at the specified key and returns the removed object
+		String* remove(String* key);
+
+		// Gets all the keys of this map
+		String* getKeys();
+
+		// Gets all the values of this map
+		String* getValues();
 }
 
 
