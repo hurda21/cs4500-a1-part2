@@ -15,7 +15,7 @@ class Map: public Object {
 		}
 
 		// Returns the amount of entries in this map
-		void length();
+		size_t length();
 
 		// Removes all entries in this map
 		void clear();
@@ -30,14 +30,15 @@ class Map: public Object {
 		Object* remove(Object* key);
 
 		// Gets all the keys of this map
-		Object* getKeys();
+		Object** getKeys();
 
 		// Gets all the values of this map
-		Object* getValues();
+		Object** getValues();
 
 		// Checks if this map is equal to another object
 		bool equals(Object* o);
 
+		// Returns the hash of this map
 		size_t hash();
 }
 
@@ -61,10 +62,10 @@ class StringMap: public Map {
 		String* remove(String* key);
 
 		// Gets all the keys of this map
-		String* getKeys();
+		String** getKeys();
 
 		// Gets all the values of this map
-		String* getValues();
+		String** getValues();
 }
 
 

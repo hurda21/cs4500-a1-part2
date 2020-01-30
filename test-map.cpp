@@ -55,7 +55,7 @@ void testMapClear() {
 	map->set(o1, o2);
 	map->set(o3, o4);
 	printf("Before clear, map length is: %i", map->length());
-	map->clear()
+	map->clear();
 	printf("After clear, map length is: %i", map->length());
 
 	// Exits the program if map length is incorrect
