@@ -21,8 +21,6 @@ void testMapSet() {
 
 	// Exits the program if map length is incorrect
 	if (map->length() != 1) exit(1);
-
-
 }
 
 void testMapRemove() {
