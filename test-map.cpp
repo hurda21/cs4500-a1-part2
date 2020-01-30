@@ -1,4 +1,5 @@
 #include "object.h"
+#include "string.h"
 #include "map.h"
 
 void testMapConstructorAndDestructor() {
