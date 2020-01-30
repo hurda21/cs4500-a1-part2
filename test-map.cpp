@@ -1,5 +1,5 @@
 #include "object.h"
-#include "map->h"
+#include "map.h"
 
 void testMapConstructorAndDestructor() {
 	Map* map = new Map();
@@ -79,10 +79,10 @@ void testMapGet() {
 void testStringMap() {
 	StringMap* stringMap = new StringMap();
 	printf("Successfully constructed string map\n");
-	String* s1 = new String();
-	String* s2 = new String();
-	String* s3 = new String();
-	String* s4 = new String();
+	String* s1 = new String("hi");
+	String* s2 = new String("bye");
+	String* s3 = new String("hello");
+	String* s4 = new String("goodbye");
 	stringMap->set(s1, s2);
 	stringMap->set(s3, s4);
 
