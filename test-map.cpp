@@ -1,75 +1,107 @@
 #include "object.h"
-#include "map.h"
+#include "map->h"
 
 void testMapConstructorAndDestructor() {
-	Map map = new Map();
+	Map* map = new Map();
 	printf("Successfully constructed map\n");
-	map.~Map();
+	map->~Map();
 	printf("Successfully deconstructed map\n");
 }
 
 void testMapSet() {
-	Map map = new Map();
-	printf("Map length is: %i", map.length());
-	Object o1 = new Object();
-	Object o2 = new Object();
-	map.set(o1, o2);
-	printf("Map length is: %i", map.length());
+	Map* map = new Map();
+	printf("Map length is: %i", map->length());
+	Object* o1 = new Object();
+	Object* o2 = new Object();
+	Object* o3 = new Object();
+	Object* o4 = new Object();
+	map->set(o1, o2);
+	printf("Map length is: %i", map->length());
 
 	// Exits the program if map length is incorrect
-	if (map.length() != 1) exit(1);
+	if (map->length() != 1) exit(1);
+
+
 }
 
 void testMapRemove() {
-	Map map = new Map();
-	Object o1 = new Object();
-	Object o2 = new Object();
-	Object o3 = new Object();
-	Object o4 = new Object();
-	map.set(o1, o2);
-	map.set(o3, o4);
-	printf("Before remove, map length is: %i", map.length());
-	map.remove(o1);
-	printf("After remove, map length is: %i", map.length());
+	Map* map = new Map();
+	Object* o1 = new Object();
+	Object* o2 = new Object();
+	Object* o3 = new Object();
+	Object* o4 = new Object();
+	map->set(o1, o2);
+	map->set(o3, o4);
+	printf("Before remove, map length is: %i", map->length());
+	map->remove(o1);
+	printf("After remove, map length is: %i", map->length());
 
 	// Exits the program if map length is incorrect
-	if (map.length() != 1) exit(1);
+	if (map->length() != 1) exit(1);
 	
-	map.remove(o3);
-	printf("After remove, map length is: %i", map.length());
+	map->remove(o3);
+	printf("After remove, map length is: %i", map->length());
 
 	// Exits the program if map length is incorrect
-	if (map.length() != 0) exit(1);
+	if (map->length() != 0) exit(1);
 }
 
 void testMapClear() {
-	Map map = new Map();
-	Object o1 = new Object();
-	Object o2 = new Object();
-	Object o3 = new Object();
-	Object o4 = new Object();
-	map.set(o1, o2);
-	map.set(o3, o4);
-	printf("Before clear, map length is: %i", map.length());
-	map.clear()
-	printf("After clear, map length is: %i", map.length());
+	Map* map = new Map();
+	Object* o1 = new Object();
+	Object* o2 = new Object();
+	Object* o3 = new Object();
+	Object* o4 = new Object();
+	map->set(o1, o2);
+	map->set(o3, o4);
+	printf("Before clear, map length is: %i", map->length());
+	map->clear()
+	printf("After clear, map length is: %i", map->length());
 
 	// Exits the program if map length is incorrect
-	if (map.length() != 0) exit(1);
+	if (map->length() != 0) exit(1);
 }
 
 void testMapGet() {
-	Map map = new Map();
-	Object o1 = new Object();
-	Object o2 = new Object();
-	Object o3 = new Object();
-	Object o4 = new Object();
-	map.set(o1, o2);
-	map.set(o3, o4);
+	Map* map = new Map();
+	Object* o1 = new Object();
+	Object* o2 = new Object();
+	Object* o3 = new Object();
+	Object* o4 = new Object();
+	map->set(o1, o2);
+	map->set(o3, o4);
 
-	if (!map.get(o1).equals(o2) || !map.get(o3).equals(o4)) {
+	if (!map->get(o1)->equals(o2) || !map->get(o3)->equals(o4)) {
 		exit(1);
 	}
+}
+
+void testStringMap() {
+	StringMap* stringMap = new StringMap();
+	printf("Successfully constructed string map\n");
+	String* s1 = new String();
+	String* s2 = new String();
+	String* s3 = new String();
+	String* s4 = new String();
+	stringMap->set(s1, s2);
+	stringMap->set(s3, s4);
+
+	if (!stringMap->get(s1)->equals(s2) || !stringMap->get(s3)->equals(s4)) {
+		exit(1);
+	}
+
+	printf("Before remove, map length is: %i", stringMap->length());
+	stringMap->remove(s1);
+	printf("After remove, map length is: %i", stringMap->length());
+
+	// Exits the program if map length is incorrect
+	if (stringMap->length() != 1) exit(1);
+
+	stringMap->clear();
+	printf("After clear, map length is: %i", stringMap->length());
+
+	// Exits the program if map length is incorrect
+	if (stringMap->length() != 0) exit(1);
 }
 
 int main() {
@@ -79,6 +111,7 @@ int main() {
 	testMapRemove();
 	testMapClear();
 	testMapGet();
+	testStringMap();
 
 	// Returns successfully if all tests are successfully completed
 	return 0;
