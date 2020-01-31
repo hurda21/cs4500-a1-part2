@@ -8,6 +8,8 @@ void testMapConstructorAndDestructor() {
 	printf("Successfully constructed map\n");
 	map->~Map();
 	printf("Successfully deconstructed map\n");
+
+	delete map;
 }
 
 void testMapSet() {
@@ -22,6 +24,12 @@ void testMapSet() {
 
 	// Exits the program if map length is incorrect
 	if (map->length() != 1) exit(1);
+
+	delete map;
+	delete o1;
+	delete o2;
+	delete o3;
+	delete o4;
 }
 
 void testMapRemove() {
@@ -44,6 +52,12 @@ void testMapRemove() {
 
 	// Exits the program if map length is incorrect
 	if (map->length() != 0) exit(1);
+
+	delete map;
+	delete o1;
+	delete o2;
+	delete o3;
+	delete o4;
 }
 
 void testMapClear() {
@@ -60,6 +74,12 @@ void testMapClear() {
 
 	// Exits the program if map length is incorrect
 	if (map->length() != 0) exit(1);
+
+	delete map;
+	delete o1;
+	delete o2;
+	delete o3;
+	delete o4;
 }
 
 void testMapGet() {
@@ -74,6 +94,12 @@ void testMapGet() {
 	if (!map->get(o1)->equals(o2) || !map->get(o3)->equals(o4)) {
 		exit(1);
 	}
+
+	delete map;
+	delete o1;
+	delete o2;
+	delete o3;
+	delete o4;
 }
 
 void testStringMap() {
@@ -101,7 +127,15 @@ void testStringMap() {
 	printf("After clear, map length is: %zu\n", stringMap->length());
 
 	// Exits the program if map length is incorrect
-	if (stringMap->length() != 0) exit(1);
+	if (stringMap->length() != 0) {
+		exit(1);
+	}
+
+	delete stringMap;
+	delete s1;
+	delete s2;
+	delete s3;
+	delete s4;
 }
 
 int main() {
