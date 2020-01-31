@@ -12,13 +12,13 @@ void testMapConstructorAndDestructor() {
 
 void testMapSet() {
 	Map* map = new Map();
-	printf("Map length is: %zu", map->length());
+	printf("Map length is: %zu\n", map->length());
 	Object* o1 = new Object();
 	Object* o2 = new Object();
 	Object* o3 = new Object();
 	Object* o4 = new Object();
 	map->set(o1, o2);
-	printf("Map length is: %zu", map->length());
+	printf("Map length is: %zu\n", map->length());
 
 	// Exits the program if map length is incorrect
 	if (map->length() != 1) exit(1);
@@ -32,15 +32,15 @@ void testMapRemove() {
 	Object* o4 = new Object();
 	map->set(o1, o2);
 	map->set(o3, o4);
-	printf("Before remove, map length is: %zu", map->length());
+	printf("Before remove, map length is: %zu\n", map->length());
 	map->remove(o1);
-	printf("After remove, map length is: %zu", map->length());
+	printf("After remove, map length is: %zu\n", map->length());
 
 	// Exits the program if map length is incorrect
 	if (map->length() != 1) exit(1);
 	
 	map->remove(o3);
-	printf("After remove, map length is: %zu", map->length());
+	printf("After remove, map length is: %zu\n", map->length());
 
 	// Exits the program if map length is incorrect
 	if (map->length() != 0) exit(1);
@@ -54,9 +54,9 @@ void testMapClear() {
 	Object* o4 = new Object();
 	map->set(o1, o2);
 	map->set(o3, o4);
-	printf("Before clear, map length is: %zu", map->length());
+	printf("Before clear, map length is: %zu\n", map->length());
 	map->clear();
-	printf("After clear, map length is: %zu", map->length());
+	printf("After clear, map length is: %zu\n", map->length());
 
 	// Exits the program if map length is incorrect
 	if (map->length() != 0) exit(1);
@@ -90,15 +90,15 @@ void testStringMap() {
 		exit(1);
 	}
 
-	printf("Before remove, map length is: %zu", stringMap->length());
+	printf("Before remove, map length is: %zu\n", stringMap->length());
 	stringMap->remove(s1);
-	printf("After remove, map length is: %zu", stringMap->length());
+	printf("After remove, map length is: %zu\n", stringMap->length());
 
 	// Exits the program if map length is incorrect
 	if (stringMap->length() != 1) exit(1);
 
 	stringMap->clear();
-	printf("After clear, map length is: %zu", stringMap->length());
+	printf("After clear, map length is: %zu\n", stringMap->length());
 
 	// Exits the program if map length is incorrect
 	if (stringMap->length() != 0) exit(1);
