@@ -1,7 +1,6 @@
 #include "object.h"
 #include "string.h"
 #include "map.h"
-#include "helper.h"
 
 void testMapConstructorAndDestructor() {
 	Map* map = new Map();
