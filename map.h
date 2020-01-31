@@ -40,7 +40,7 @@ class Map: public Object {
 
 		// Returns the hash of this map
 		size_t hash();
-}
+};
 
 class StringMap: public Map {
 	public:
@@ -66,6 +66,4 @@ class StringMap: public Map {
 
 		// Gets all the values of this map
 		String** getValues();
-}
-
-
+};
